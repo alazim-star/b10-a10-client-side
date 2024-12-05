@@ -1,56 +1,69 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const VisaCard = ({ visa,visas,setVisas}) => {
+const VisaCard = ({ visa, visas, setVisas }) => {
   return (
-   <div >
-     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white ">
-      {/* Country Image */}
-      <img className="w-full h-48 object-cover" src={visa.countryImage}
-       alt={visa.countryName} />
+    <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-white border border-gray-200">
+      {/* Country Flag */}
+      <img
+        className="w-full h-48 object-cover"
+        src={visa.countryImage}
+        alt={visa.countryName}
+      />
 
-      <div className="px-6 py-4">
+      {/* Card Content */}
+      <div className="p-6">
         {/* Country Name */}
-        <h2 className="font-bold text-xl mb-2">{visa.countryName}</h2>
+        <h2 className="font-bold text-2xl mb-4 text-center text-gray-800">
+          {visa.countryName}
+        </h2>
 
-        {/* Visa Type */}
-        <p className="text-gray-700 text-base mb-1">
-          <strong>Visa Type:</strong> {visa.visaType}
-        </p>
+        {/* Visa Details */}
+        <div className="text-gray-700 space-y-2">
+          <p>
+            <strong>Visa Type:</strong> {visa.visaType}
+          </p>
+          <p>
+            <strong>Processing Time:</strong> {visa.processingTime}
+          </p>
+          <p>
+            <strong>Fee:</strong> ${visa.Fee}
+          </p>
+          <p>
+            <strong>Validity:</strong> {visa.validity}
+          </p>
+          <p>
+            <strong>Application Method:</strong> {visa.applicationMethod}
+          </p>
+        </div>
 
-        {/* Processing Time */}
-        <p className="text-gray-700 text-base mb-1">
-          <strong>Processing Time:</strong> {visa.processingTime}
-        </p>
+        {/* Applied Date (if available) */}
+        {visa.appliedDate && (
+          <div className="mt-4 text-gray-600">
+            <p>
+              <strong>Applied Date:</strong> {visa.appliedDate}
+            </p>
+            <p>
+              <strong>Applicant's Name:</strong> {visa.applicantName}
+            </p>
+            <p>
+              <strong>Applicant's Email:</strong> {visa.applicantEmail}
+            </p>
+          </div>
+        )}
 
-        {/* Fee */}
-        <p className="text-gray-700 text-base mb-1">
-          <strong>Fee:</strong> {visa.Fee}
-        </p>
+        {/* Buttons */}
+        <div className="mt-6 flex justify-between items-center">
+          <Link to={`/viewDetails/${visa._id}`}>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
+              See Details
+            </button>
+          </Link>
 
-        {/* Validity */}
-        <p className="text-gray-700 text-base mb-1">
-          <strong>Validity:</strong> {visa.validity}
-        </p>
-
-        {/* Application Method */}
-        <p className="text-gray-700 text-base mb-4">
-          <strong>Application Method:</strong> {visa.applicationMethod}
-        </p>
+          
+        </div>
       </div>
-
-      {/* See Details Button */}
-      <div className="px-6 py-2">
-  <Link to={`/viewDetails/${visa._id}`}>
-    <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition">
-      See Details
-    </button>
-  </Link>
-</div>
-
     </div>
-   </div>  
-
   );
 };
 

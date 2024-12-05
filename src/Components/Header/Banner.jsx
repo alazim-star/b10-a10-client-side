@@ -1,25 +1,98 @@
+
 import React from "react";
+import Marquee from "react-fast-marquee";
+
 
 const Banner = () => {
+  const marqueeItems = [
+    {
+      img: "https://i.ibb.co/F4NYbnb/viaggi-stati-uniti-new-york-i-Stock-1225580270-1080x720.jpg",
+      country: "USA",
+    },
+    {
+      img: "https://i.ibb.co.com/47kJD8r/Iconic-Landmarks-in-Rome-original.jpg",
+      country: "Italy",
+    },
+    {
+      img: "https://i.ibb.co.com/7Wc9rDF/Website-topbanner-classic-japan-1024x390.png",
+      country: "Japan",
+    },
+    {
+      img: "https://i.ibb.co.com/wY9dp9n/dubai-marina-skyline-2c8f1708f2a1.jpg",
+      country: "Dubai",
+    },
+  ];
+
   return (
-    <div
-      className="hero h-[600px] relative "
-      style={{
-        backgroundImage:
-          "url(https://i.ibb.co.com/zXH3gZq/pexels-andreimike-1271619.jpg)",
-      }}
-    >
-      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 p-6 bg-white/30 backdrop-blur-md rounded-lg shadow-lg w-[350px]">
-        {/* Close Button */}
+    <div>
+
+
+<div className="carousel h-[550px] w-full">
+  <div id="slide1" className="carousel-item relative w-full">
+    <img
+      src="https://i.ibb.co.com/tYh04c4/Poland-Student-Visa-Success-Rate-for-International-Students.jpg"
+      className="w-full" />
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide4" className="btn btn-circle">❮</a>
+      <a href="#slide2" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide2" className="carousel-item relative w-full">
+    <img
+      src="https://i.ibb.co.com/wr9qBj1/UK-Student-Visa-Success-Rate-for-International-Students.jpg"
+      className="w-full" />
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide1" className="btn btn-circle">❮</a>
+      <a href="#slide3" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide3" className="carousel-item relative w-full">
+    <img
+      src="https://i.ibb.co.com/8BQFhGf/1711686509.jpg"
+      className="w-full" />
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide2" className="btn btn-circle">❮</a>
+      <a href="#slide4" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="slide4" className="carousel-item relative w-full">
+    <img
+      src="https://i.ibb.co.com/Y7w0VMF/how-to-improve-your-chances-of-getting-a-canadian-student-visa-details.jpg"
+      className="w-full" />
+    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#slide3" className="btn btn-circle">❮</a>
+      <a href="#slide1" className="btn btn-circle">❯</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* Login Form */}
+      <div className="absolute left-20 top- transform -translate-y-1/2 p-6 bg-white/30 backdrop-blur-md rounded-lg shadow-lg w-[350px]">
         <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
           ✕
         </button>
-        {/* Login Form */}
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
           Login
         </h2>
         <form>
-          {/* Email Input */}
           <div className="relative mb-4">
             <input
               type="email"
@@ -41,8 +114,6 @@ const Banner = () => {
               />
             </svg>
           </div>
-
-          {/* Password Input */}
           <div className="relative mb-4">
             <input
               type="password"
@@ -64,8 +135,6 @@ const Banner = () => {
               />
             </svg>
           </div>
-
-          {/* Remember Me & Forgot Password */}
           <div className="flex items-center justify-between mb-6">
             <label className="flex items-center space-x-2 text-sm">
               <input type="checkbox" className="checkbox checkbox-sm" />
@@ -75,11 +144,7 @@ const Banner = () => {
               Forgot Password?
             </a>
           </div>
-
-          {/* Login Button */}
           <button className="btn bg-green-600 w-full">Login</button>
-
-          {/* Register Link */}
           <p className="text-sm text-center mt-4">
             Don't have an account?{" "}
             <a href="#" className="text-blue-500 hover:underline">
@@ -88,6 +153,26 @@ const Banner = () => {
           </p>
         </form>
       </div>
+
+      {/* Marquee Section */}
+      <div className="absolute  w-full mt-[]">
+        <Marquee>
+          {marqueeItems.map((item, index) => (
+            <div key={index} className="relative w-80 h-40 mx-5">
+              <img
+                className="w-full h-full object-cover rounded-lg"
+                src={item.img}
+                alt={item.country}
+              />
+              <div className="absolute inset-0 flex items-center justify-center rounded-lg">
+                <p className="text-white text-lg font-bold">{item.country}</p>
+              </div>
+            </div>
+          ))}
+        </Marquee>
+      </div>
+
+    
     </div>
   );
 };
