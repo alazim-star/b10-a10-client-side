@@ -33,17 +33,17 @@ const Banner = () => {
       src="https://i.ibb.co.com/tYh04c4/Poland-Student-Visa-Success-Rate-for-International-Students.jpg"
       className="w-full" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide4" className="btn btn-circle">❮</a>
-      <a href="#slide2" className="btn btn-circle">❯</a>
+      <a href="#slide4" className="btn btn-circle text-5xl">❮</a>
+      <a href="#slide2" className="btn btn-circle text-5xl">❯</a>
     </div>
   </div>
   <div id="slide2" className="carousel-item relative w-full">
     <img
       src="https://i.ibb.co.com/wr9qBj1/UK-Student-Visa-Success-Rate-for-International-Students.jpg"
-      className="w-full" />
+      className="lg:w-full " />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide1" className="btn btn-circle">❮</a>
-      <a href="#slide3" className="btn btn-circle">❯</a>
+      <a href="#slide1" className="btn btn-circle text-5xl">❮</a>
+      <a href="#slide3" className="btn btn-circle text-5xl">❯</a>
     </div>
   </div>
   <div id="slide3" className="carousel-item relative w-full">
@@ -51,8 +51,8 @@ const Banner = () => {
       src="https://i.ibb.co.com/8BQFhGf/1711686509.jpg"
       className="w-full" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide2" className="btn btn-circle">❮</a>
-      <a href="#slide4" className="btn btn-circle">❯</a>
+      <a href="#slide2" className="btn btn-circle text-5xl">❮</a>
+      <a href="#slide4" className="btn btn-circle text-5xl">❯</a>
     </div>
   </div>
   <div id="slide4" className="carousel-item relative w-full">
@@ -60,33 +60,15 @@ const Banner = () => {
       src="https://i.ibb.co.com/Y7w0VMF/how-to-improve-your-chances-of-getting-a-canadian-student-visa-details.jpg"
       className="w-full" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide3" className="btn btn-circle">❮</a>
-      <a href="#slide1" className="btn btn-circle">❯</a>
+      <a href="#slide3" className="btn btn-circle text-5xl">❮</a>
+      <a href="#slide1" className="btn btn-circle text-5xl">❯</a>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Login Form */}
-      <div className="absolute left-20 top- transform -translate-y-1/2 p-6 bg-white/30 backdrop-blur-md rounded-lg shadow-lg w-[350px]">
-        <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+      <div className="hidden lg:block absolute right-20 top-96 transform -translate-y-1/2 p-6 bg-white/30 backdrop-blur-md rounded-lg shadow-lg w-[350px]">
+        <button className="absolute text-3xl top-4 right-4 text-gray-400 hover:text-green-600">
           ✕
         </button>
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
@@ -144,7 +126,7 @@ const Banner = () => {
               Forgot Password?
             </a>
           </div>
-          <button className="btn bg-green-600 w-full">Login</button>
+          <button className="p-3 bg-green-600 w-full">Login</button>
           <p className="text-sm text-center mt-4">
             Don't have an account?{" "}
             <a href="#" className="text-blue-500 hover:underline">
@@ -153,6 +135,8 @@ const Banner = () => {
           </p>
         </form>
       </div>
+
+      
 
       {/* Marquee Section */}
       <div className="absolute  w-full mt-[]">

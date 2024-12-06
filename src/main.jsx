@@ -1,8 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-
 
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import MainLayout from './Page/MainLayout.jsx';
@@ -10,7 +8,6 @@ import Home from './Page/Home.jsx';
 import ErrorPage from './ErrorPage/ErrorPage.jsx';
 import Allvisa from './Components/Header/Allvisa.jsx';
 import AddVisa from './Components/Header/AddVisa.jsx';
-import MyAddedVisa from './Components/Header/MyAddedVisa.jsx';
 import LatesVisaSection from './Components/LatesVisaSection.jsx';
 import ViewDetails from './Components/ViewDetails.jsx';
 import Register from './Components/Register.jsx';
@@ -20,7 +17,8 @@ import MyAddedVisaCard from './Components/visaCard/MyAddedVisaCard.jsx';
 
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import MyVisaApplications from './Components/Header/MyVisaApplications.jsx';
-import CardProducts from './Components/CardProduct.jsx';
+import AllUsers from './Components/Header/AllUsers.jsx';
+
 
 
 
@@ -63,7 +61,7 @@ const router = createBrowserRouter([
               },
               {
                 path: "/clients",
-                element: <MyAddedVisa></MyAddedVisa>,
+                element: <AllUsers></AllUsers>,
                 loader:()=>fetch('http://localhost:5000/clients'),
             
             

@@ -3,17 +3,18 @@ import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 
 const MyVisaApplications = () => {
-  const { user } = useContext(AuthContext);   
+  const { user } = useContext(AuthContext);
   const [applications, setApplications] = useState([]);
+  const [filteredApplications, setFilteredApplications] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    console.log(user.email);
     if (user?.email) {
       fetch(`http://localhost:5000/applications/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log("fetch applications:", data);
-          setApplications(data); 
+          setApplications(data);
+          setFilteredApplications(data); 
         })
         .catch((err) => console.error("Error fetching applications:", err));
     }
@@ -37,9 +38,10 @@ const MyVisaApplications = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your application has been deleted.", "success");
-
-              // Update the UI by removing the deleted application
               setApplications((prev) => prev.filter((app) => app._id !== id));
+              setFilteredApplications((prev) =>
+                prev.filter((app) => app._id !== id)
+              );
             }
           })
           .catch((err) => console.error("Error cancelling application:", err));
@@ -47,12 +49,42 @@ const MyVisaApplications = () => {
     });
   };
 
+  const handleSearch = () => {
+    const filtered = applications.filter((app) =>
+      app.countryName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredApplications(filtered);
+  };
+
+  const handleReset = () => {
+    setFilteredApplications(applications); 
+    setSearchTerm(""); 
+  };
+
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-semibold mb-6">My Visa Applications</h2>
-      {applications.length > 0 ? (
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-semibold">My Visa Applications</h2>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            className="input input-bordered"
+            placeholder="Search by country"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="btn bg-green-600 text-white" onClick={handleSearch}>
+            Search
+          </button>
+          <button className="btn bg-green-600 text-white" onClick={handleReset}>
+            Previous
+          </button>
+        </div>
+      </div>
+
+      {filteredApplications.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {applications.map((app) => (
+          {filteredApplications.map((app) => (
             <div
               key={app._id}
               className="border rounded-lg p-4 shadow-md bg-white"
@@ -91,7 +123,7 @@ const MyVisaApplications = () => {
           ))}
         </div>
       ) : (
-        <p>No applications found for your account.</p>
+        <p>No applications found for your search.</p>
       )}
     </div>
   );

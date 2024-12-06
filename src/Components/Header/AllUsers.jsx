@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const MyAddedVisa = () => {
+const AllUsers = () => {
     const loadedClients = useLoaderData(); // Data loaded from backend
     const [clients,setClients] = useState(loadedClients);
 
@@ -48,27 +48,7 @@ const MyAddedVisa = () => {
 
     return (
 
-
-
-
-
-
-
-
-
-
-        <div>
-
-
-
-
-
-
-
-
-
-
-
+        <div className="container mx-auto">
             <h2 className="text-2xl font-bold mb-4">Users: {clients.length}</h2>
             {clients.length === 0 ? (
                 <p className="text-center text-gray-500">No clients found.</p>
@@ -114,4 +94,4 @@ const MyAddedVisa = () => {
     );
 };
 
-export default MyAddedVisa;
+export default AllUsers;

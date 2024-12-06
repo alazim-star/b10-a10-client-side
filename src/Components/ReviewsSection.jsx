@@ -1,4 +1,5 @@
 import React from "react";
+import { Tooltip } from "react-tooltip";
 
 const ReviewsSection = () => {
   const reviews = [
@@ -48,15 +49,20 @@ const ReviewsSection = () => {
 
   return (
     <div className="bg-gray-100 py-20">
-      <div className="max-w-5xl mx-auto px-4">
+      
+      <div className="lg:max-w-5xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-8 ">
+        <div className="text-center lg:mb-8 ">
           <div className="flex justify-center gap-5 items-center">
-          <h2 className="text-3xl font-bold text-gray-800">EXCELLENT</h2>
+          <h2 className="lg:text-3xl font-bold text-gray-800">EXCELLENT</h2>
           <span className="text-yellow-500 text-lg font-semibold">★★★★★</span>
           <span className="text-gray-600">4.40 Average</span>
           <span className=" font-bold">(3821 Reviews)</span>
-          <h2 className="text-3xl font-bold">REVIEWS</h2>
+          <h2 className="lg:text-3xl font-bold">REVIEWS</h2>
+       
+
+
+
           </div>
           
           <div className="flex justify-center items-center gap-2 mt-2">
@@ -81,14 +87,14 @@ const ReviewsSection = () => {
                 <span className="font-bold text-xl">{review.name}</span> 
                 <br />
                 <p className="text-gray-800">{review.text}</p>
-                <div className="mt-4 text-sm text-gray-500">
+                <div className="lg:mt-4 text-sm text-gray-500">
                  <br />
                   <span>Posted {review.posted}</span>
                 </div>
               </div>
 
               {/* Navigation Buttons */}
-              <div className="absolute flex justify-between transform -translate-y-1/2 top-1/2 w-full px-4">
+              <div className="absolute flex justify-between transform -translate-y-1/2 lg:top-1/2 top-64 w-full px-4">
                 <a
                   href={`#slide${(index - 1 + reviews.length) % reviews.length}`}
                   className="btn btn-circle text-5xl text-gray-500"

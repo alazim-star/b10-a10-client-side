@@ -42,27 +42,27 @@ const Navbar = () => {
 
   const links = (
     <>
-      <li>
+      <a className="mr-3" >
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? 'underline ' : 'hover:bg-[#0172b1]'
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
           }
         >
           Home
         </NavLink>
-      </li>
-      <li>
+      </a>
+      <a className="mr-3" >
         <NavLink
           to="/allVisas"
           className={({ isActive }) =>
-            isActive ? 'underline text-black' : 'text-black hover:bg-[#0172b1]'
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
           }
         >
           <select
             value={selectedCategory}
             onChange={handleCategoryChange}
-            className=""
+            className="bg-green-600 outline-none "
           >
             <option value="All" disabled={selectedCategory === "All"}>All visas</option>
             <option value="Tourist">Tourist</option>
@@ -71,47 +71,59 @@ const Navbar = () => {
             <option value="Working">Working</option>
           </select>
         </NavLink>
-      </li>
-      <li>
+      </a>
+      <a className="mr-3" >
         <NavLink
           to="/addVisa"
           className={({ isActive }) =>
-            isActive ? 'underline' : 'hover:bg-[#0172b1]'
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
           }
         >
           Add Visa
         </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/clients"
-          className={({ isActive }) =>
-            isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
-          }
-        >
-          My added visas
-        </NavLink>
-      </li>
-      <li>
+      </a>
+     
+      <a className="mr-3" >
         <NavLink
           to="/visaApplication"
           className={({ isActive }) =>
-            isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
           }
         >
           My Visa applications
         </NavLink>
-      </li>
-      <li>
+      </a>
+      <a className="mr-3" >
         <NavLink
           to="/visaCard"
           className={({ isActive }) =>
-            isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
           }
         >
-          My Added visa card
+          My Added Visas 
         </NavLink>
-      </li>
+      </a>
+     
+
+
+
+
+      {user && (
+        <>
+        <a>
+        <NavLink
+          to="/clients"
+          className={({ isActive }) =>
+            isActive ? 'lg:bg-yellow-500 lg:p-3 p-5 underline text-black ' :  'lg:hover:bg-blue-500 p-3 '
+          }
+        >
+         All Users
+        </NavLink>
+      </a>
+        </>
+      )}
+
+
     </>
   );
 
@@ -125,7 +137,7 @@ const Navbar = () => {
     >
       <div className="navbar mx-auto container h-20">
         {/* Navbar Start */}
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <button
               tabIndex={0}
@@ -149,26 +161,26 @@ const Navbar = () => {
             </button>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-3 w-52 p-2 shadow"
+              className=" menu menu-sm dropdown-content bg-green-600  z-[50] mt-3  w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
 
-          <NavLink to="/" className="btn btn-ghost text-xl">
+          <NavLink to="/" className=" text-xl">
             <img
-              className="w-64"
+              className="lg:w-64 w-36"
               src="https://i.ibb.co.com/6WDnSDM/VISA-NAVIGATOR-12-3-2024-1.png"
               alt="Visa Navigator Logo"
             />
           </NavLink>
         </div>
 
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
 
-        <div className="navbar-end flex items-center space-x-4">
+        <div className="navbar-end flex items-center mr-10">
           {loading ? (
             <p className="text-white">Loading...</p>
           ) : user ? (
@@ -177,11 +189,11 @@ const Navbar = () => {
                 <img
                   src={user.photoURL}
                   alt="User Profile"
-                  className="w-10 h-10 rounded-full border border-white"
+                  className= " w-10 h-10 rounded-full border border-white"
                 />
               )}
               <p className="text-sm lg:text-md text-white">
-                Welcome, <span className="font-bold">{user.email}</span>
+                Welcome, <span className=" font-bold">{user.email}</span>
               </p>
               <button
                 onClick={handleSignOut}
@@ -193,7 +205,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="btn bg-blue-500 rounded-md text-white"
+              className="btn bg-blue-500 rounded-md text-white "
             >
               Login
             </Link>

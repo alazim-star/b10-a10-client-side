@@ -120,8 +120,8 @@ const Card = ({ visa, visas, setVisas }) => {
   ];
 
   return (
-    <div className="p-5 rounded-3xl overflow-hidden shadow-2xl bg-white">
-      <img className="object-cover w-full h-48" src={visa.countryImage} alt={visa.countryName} />
+    <div className="  p-5  rounded-3xl overflow-hidden shadow-2xl">
+      <img className="object-cover rounded-3xl w-full h-48" src={visa.countryImage} alt={visa.countryName} />
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2">{visa.countryName}</h2>
         <p><strong>Visa Type:</strong> {visa.visaType}</p>

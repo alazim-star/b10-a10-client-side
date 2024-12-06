@@ -16,19 +16,12 @@ const Login = () => {
     const emailRef = useRef();
     const auth = getAuth();
 
-
-
-
-
-
-
-
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        setError(""); // Clear previous error
+        setError(""); 
 
         signInUser(email, password)
             .then((result) => {
@@ -39,35 +32,22 @@ const Login = () => {
                     hideProgressBar: true,
                   
                 });
-                e.target.reset(); // Reset form fields
-                navigate(location?.state || "/"); // Navigate to intended or home
+                e.target.reset();
+                navigate(location?.state || "/"); 
                     
             })
             .catch((error) => {
                 console.error("ERROR:", error.message);
-                setError(error.message); // Set error message
+                setError(error.message); 
                 toast.error("Login failed: " + error.message, {
                     position: "top-right",
                     autoClose: 3000,
 
                 });
             });   
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                           
                 // update last login time 
       const lastSignInTime=result?.user?.metadata?.lastSignInTime
-
-
-
-
 
 
       const loginInfo ={email,lastSignInTime}
@@ -86,12 +66,6 @@ const Login = () => {
       .catch(error=>{
         console.log(error);
       })
-    
-               
-    
-    
-
-    
     
     
         };
@@ -138,9 +112,20 @@ const handleGoogleSignIn=()=>{
 
 
     return (
-        <div className="flex items-center min-h-screen justify-center">
+      <div className=''>
+<div className="relative inset-0">
+  <img
+    className=" object-cover lg:w-full  opacity-80 h-screen "
+    src="https://i.ibb.co/5Y745Zn/viaggi-stati-uniti-new-york-i-Stock-1225580270-1080x720.jpg"
+    alt="Background"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+</div>
+
+          <div className="flex items-center  justify-center ">
+     
             <ToastContainer />
-            <div className="card bg-base-100 w-full max-w-lg rounded-md p-10 shadow-md">
+            <div className= " w-30 sm:h-96 lg:h-[600px]  bg-white/30 rounded-lg  shadow-lg  backdrop-blur-md  card bg-base-100 lg:w-full lg:max-w-lg  p-10 absolute bottom-0">
                 <h2 className="text-2xl text-center font-bold mb-5">
                     Login to Your Account
                 </h2>
@@ -206,6 +191,7 @@ const handleGoogleSignIn=()=>{
     </button>
             </div>
         </div>
+      </div>
     );
 };
 

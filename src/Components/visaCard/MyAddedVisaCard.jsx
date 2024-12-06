@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MyAddedVisa from '../Header/MyAddedVisa';
+import MyAddedVisa from '../Header/AllUsers';
 import { useLoaderData } from 'react-router-dom';
 import Card from './Card';
 
