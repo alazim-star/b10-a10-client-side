@@ -11,14 +11,16 @@ import ErrorPage from './ErrorPage/ErrorPage.jsx';
 import Allvisa from './Components/Header/Allvisa.jsx';
 import AddVisa from './Components/Header/AddVisa.jsx';
 import MyAddedVisa from './Components/Header/MyAddedVisa.jsx';
-import VisaApplication from './Components/Header/VisaApplication.jsx';
 import LatesVisaSection from './Components/LatesVisaSection.jsx';
 import ViewDetails from './Components/ViewDetails.jsx';
 import Register from './Components/Register.jsx';
 import AuthProvider from './Components/AuthProvider.jsx';
 import Login from './Components/Login.jsx';
 import MyAddedVisaCard from './Components/visaCard/MyAddedVisaCard.jsx';
-import UpdateVisa from './Components/UpdateVisa.jsx';
+
+import PrivateRoute from './Components/PrivateRoute.jsx';
+import MyVisaApplications from './Components/Header/MyVisaApplications.jsx';
+import CardProducts from './Components/CardProduct.jsx';
 
 
 
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader:()=>fetch("/category.json"),
         children:[
           {
             path: "/",
@@ -50,7 +53,12 @@ const router = createBrowserRouter([
           
             {
               path: "/addVisa",
-              element: <AddVisa></AddVisa>,
+              element: (
+                <PrivateRoute>
+                  <AddVisa></AddVisa>,
+                </PrivateRoute>
+
+              )
           
               },
               {
@@ -63,13 +71,23 @@ const router = createBrowserRouter([
 
                 {
                   path: "/visaCard",
-                  element: <MyAddedVisaCard></MyAddedVisaCard>,
+                  element: (
+                    <PrivateRoute>
+                      <MyAddedVisaCard></MyAddedVisaCard>,
+                     
+                    </PrivateRoute>
+
+                  ),
                   loader:()=>fetch('http://localhost:5000/visa'),
                   },
                 {
                   path: "/visaApplication",
-                  element: <VisaApplication></VisaApplication>,
-                  loader:()=>fetch('http://localhost:5000/applications'),
+                  element:(<PrivateRoute>
+                     <MyVisaApplications></MyVisaApplications>,
+                  </PrivateRoute>
+
+                  ),
+                  // loader:()=>fetch(`http://localhost:5000/applications/:email${email}`),
               
                   },
                   {
@@ -92,30 +110,13 @@ const router = createBrowserRouter([
                       element: <Login></Login>,
                   
                       },
-                      {
-                        path: "/update",
-                        element: <UpdateVisa></UpdateVisa>,
-                    
-                        },
                      
-                  
-      
-    
-
-  
-
-
-
-
-
+                     
+ 
     ],
     },
  
-
- 
-
 ]);
-
 
 
 createRoot(document.getElementById('root')).render(

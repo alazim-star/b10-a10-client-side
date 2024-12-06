@@ -4,23 +4,27 @@ const Footer = () => {
     return (
         <div>
             
-            <footer className="footer bg-green-600 text-white p-10">
-  <nav>
-    <h6 className="footer-title">Services</h6>
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
+            <footer className='bg-green-600 text-white'>
+ <div className="footer  container mx-auto p-10 " >
+ <nav>
+    <h6 className="footer-title text-xl">Services</h6>
+    <a className="link link-hover hover:text-blue-300">Apply for a visa</a>
+    <a className="link link-hover hover:text-blue-300">Apply for Passport</a>
+    <a className="link link-hover hover:text-blue-300">Check visa requirements</a>
+    <a className="link link-hover hover:text-blue-300">Customs Information</a>
+    <a className="link link-hover hover:text-blue-300">Embassies and Consulates</a>
+    <a className="link link-hover hover:text-blue-300">Privacy Statement</a>
+    <a className="link link-hover hover:text-blue-300">Terms of Service</a>
   </nav>
   <nav>
-    <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
+    <h6 className="footer-title text-xl">Company</h6>
+    <a className="link link-hover hover:text-blue-300">About us</a>
+    <a className="link link-hover hover:text-blue-300">Finish an Application</a>
+    <a className="link link-hover hover:text-blue-300">Manage My Applicants</a>
+    <a className="link link-hover hover:text-blue-300">Manage My Orders</a>
   </nav>
   <nav>
-    <h6 className="footer-title">Social</h6>
+    <h6 className="footer-title text-xl">Social</h6>
     <div className="grid grid-flow-col gap-4">
       <a>
         <svg
@@ -57,6 +61,7 @@ const Footer = () => {
       </a>
     </div>
   </nav>
+ </div>
 </footer>
 
         </div>

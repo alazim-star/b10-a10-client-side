@@ -33,9 +33,42 @@ const Login = () => {
         signInUser(email, password)
             .then((result) => {
                 console.log(result.user);
-               
-                    // update last login time 
+                toast.success("Login successful!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                  
+                });
+                e.target.reset(); // Reset form fields
+                navigate(location?.state || "/"); // Navigate to intended or home
+                    
+            })
+            .catch((error) => {
+                console.error("ERROR:", error.message);
+                setError(error.message); // Set error message
+                toast.error("Login failed: " + error.message, {
+                    position: "top-right",
+                    autoClose: 3000,
+
+                });
+            });   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                // update last login time 
       const lastSignInTime=result?.user?.metadata?.lastSignInTime
+
+
+
+
+
 
       const loginInfo ={email,lastSignInTime}
       fetch(`http://localhost:5000/clients`,{
@@ -54,7 +87,7 @@ const Login = () => {
         console.log(error);
       })
     
-                });
+               
     
     
 

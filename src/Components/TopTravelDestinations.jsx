@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Fade } from "react-awesome-reveal";
 const TopTravelDestinations = () => {
     const destinations = [
         {
@@ -36,7 +36,19 @@ const TopTravelDestinations = () => {
 
     return (
         <div className="container mx-auto my-14 px-4">
-            <h1 className="my-10 text-center text-4xl font-bold">Top Travel Destinations</h1>
+            <h1 className="my-5 text-center text-4xl font-bold">Top Travel Destinations</h1>
+           
+     <div className='text-red-600 text-center mb-10 font-bold'>
+     <Fade>
+        <p className="text-3xl">
+        Find the right  Visa for your trip with price, requirements, and application time
+        </p>
+      </Fade>
+     </div>
+    
+          
+            
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {destinations.map((destination, index) => (
                     <div key={index} className="relative group">

@@ -12,47 +12,8 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
 
-    const [theme, setTheme] = useState("light");
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme) {
-          setTheme(savedTheme);
-          document.documentElement.classList.add(savedTheme);
-        }
-      }, []);
-    
-      // থিম পরিবর্তনের জন্য হ্যান্ডলার
-      const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.remove("light", "dark");
-        document.documentElement.classList.add(newTheme);
-        localStorage.setItem("theme", newTheme);
-      };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
+   
     // for loading 
     const [loading,setLoading]=useState(true)
    
@@ -112,7 +73,7 @@ const authInfo = {
    signInUser,
    signOutUser,
    updateUserProfile,
-   signInWithGoogle,
+   signInWithGoogle
 
    
  

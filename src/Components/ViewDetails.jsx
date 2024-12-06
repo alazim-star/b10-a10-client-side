@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+
+import Swal from "sweetalert2";
 import { AuthContext } from './AuthProvider';
 
 const ViewDetails = () => {
@@ -10,11 +12,26 @@ const ViewDetails = () => {
     firstName: '',
     lastName: '',
   });
+ 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
   // Current date
   const currentDate = new Date().toLocaleDateString();
+
+  
+  
+
+
+
+
+  
+  
+  
+
+
+
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +70,13 @@ const ViewDetails = () => {
       .then((data) => {
         setIsSubmitting(false);
         if (data.insertedId) {
-          alert('Application submitted successfully!');
+          Swal.fire({
+            title: "Success",
+            text: "Visa Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+
           setIsModalOpen(false); // Close modal
           setFormData({ firstName: '', lastName: '' }); // Reset form
           navigate('/visaApplication'); // Redirect to visa applications page
@@ -97,9 +120,9 @@ const ViewDetails = () => {
             <p className="text-lg"><strong>Application Method:</strong> {visa.applicationMethod}</p>
           </div>
           <div className="flex justify-end space-x-4">
-            <Link to='/'>
+            <Link to='/allVisas'>
               <button className="bg-blue-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
-                Back to Home
+              See All Visas
               </button>
             </Link>
             <button

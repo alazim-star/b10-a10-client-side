@@ -126,7 +126,7 @@ const Card = ({ visa, visas, setVisas }) => {
         <h2 className="font-bold text-xl mb-2">{visa.countryName}</h2>
         <p><strong>Visa Type:</strong> {visa.visaType}</p>
         <p><strong>Processing Time:</strong> {visa.processingTime}</p>
-        <p><strong>Fee:</strong> ${visa.Fee}</p>
+        <p><strong>Fee:</strong>{visa.Fee}</p>
         <p><strong>Validity:</strong> {visa.validity}</p>
         <p><strong>Application Method:</strong> {visa.applicationMethod}</p>
       </div>
@@ -149,168 +149,175 @@ const Card = ({ visa, visas, setVisas }) => {
 
       {/* modal  */}
       {isModalOpen && (
-        <div
-          className=" fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50"
-          role="dialog"
-          aria-labelledby="modal-title"
-          aria-modal="true"
-        >
-          <div className="bg-white p-6 rounded-lg w-1/2 h-[650px]">
-            <h2 id="modal-title" className="text-xl text-center font-bold mb-4">Update Visa</h2>
-            <div>
-              <input
-                type="text"
-                name="countryImage"
-                value={UpdatedVisa.countryImage}
-                onChange={handleInputChange}
-                placeholder="Enter country image URL"
-                className="border p-2 w-full mb-4"
-              />
+  <div
+    className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50"
+    role="dialog"
+    aria-labelledby="modal-title"
+    aria-modal="true"
+  >
+    <div className="bg-white p-6 rounded-lg w-1/2 h-[650px] overflow-y-auto">
+      <h2 id="modal-title" className="text-xl text-center font-bold mb-4">
+        Update Visa
+      </h2>
+      <div>
+        <input
+          type="text"
+          name="countryImage"
+          value={UpdatedVisa.countryImage}
+          onChange={handleInputChange}
+          placeholder="Enter country image URL"
+          className="border p-2 w-full mb-4"
+        />
 
-
-            <div className='flex gap-3'>
-                
-            <level>
-                <p className='text-sm'>Country Name</p>
+        <div className="flex gap-3">
+          <label className="w-1/2">
+            <span className="text-sm">Country Name</span>
             <input
-                type="text"
-                name="countryName"
-                value={UpdatedVisa.countryName}
-                onChange={handleInputChange}
-                placeholder="Enter country name"
-                className="border p-2 w-full mb-4"
-              />
-            </level>
-            
-         <level>
-            <p className='text-sm'>Visa type</p>
-         <select
-                name="visaType"
-                value={UpdatedVisa.visaType}
-                onChange={handleInputChange}
-                className="border p-2 w-full mb-4"
-              >
-                <option value="Tourist visa">Tourist Visa</option>
-                <option value="Student visa">Student Visa</option>
-                <option value="Official visa">Official Visa</option>
-              </select>
-         </level>
-              </div> 
+              type="text"
+              name="countryName"
+              value={UpdatedVisa.countryName}
+              onChange={handleInputChange}
+              placeholder="Enter country name"
+              className="border p-2 w-full mb-4"
+            />
+          </label>
 
-<div className='flex gap-3'>
-    
-<level>
-    <p className='text-sm'>Processing Time</p>
-    <select onChange={handleInputChange} name="processingTime" className="select select-info w-20" required>
-                <option value="" disabled selected>
-                  Select Fee
-                </option>
-                <option     value={UpdatedVisa.processingTime}>2 weeks</option>
-                <option     value={UpdatedVisa.processingTime}>3 weeks</option>
-                <option     value={UpdatedVisa.processingTime}>20 days</option>
-                <option     value={UpdatedVisa.processingTime}>30 days</option>
-              </select>
-</level>
-
-<select onChange={handleInputChange} name="Fee" className="select select-info w-full" required>
-                <option value="" disabled selected>
-                  Select Fee
-                </option>
-                <option     value={UpdatedVisa.ageRestriction}>$500</option>
-                <option     value={UpdatedVisa.ageRestriction}>$1000</option>
-                <option     value={UpdatedVisa.ageRestriction}>$2000</option>
-                <option     value={UpdatedVisa.ageRestriction}>$3000</option>
-              </select>
-</div>
-
-
-              <div className="mb-4 flex ">
-                <p>Required Documents</p>
-                {allDocuments.map((doc) => (
-                  <label key={doc} className="block">
-                    <input
-                      type="checkbox"
-                      value={doc}
-                      checked={UpdatedVisa.requiredDocuments.includes(doc)}
-                      onChange={handleInputChange}
-                    />
-                    {doc}
-                  </label>
-                ))}
-              </div>
-              <textarea
-                name="description"
-                value={UpdatedVisa.description}
-                onChange={handleInputChange}
-                placeholder="Enter description"
-                className="border p-2 w-full mb-4"
-              />
-             
-<div className='flex gap-3'>
-
-
-<select name="Fee" className="select select-info w-full"  onChange={handleInputChange} required>
-                <option value="" disabled selected>
-                  Select Fee
-                </option>
-                <option     value={UpdatedVisa.ageRestriction}>18-25</option>
-                <option     value={UpdatedVisa.ageRestriction}>25-40</option>
-                <option     value={UpdatedVisa.ageRestriction}>40-50</option>
-                <option     value={UpdatedVisa.ageRestriction}>50-65</option>
-              </select>
-
-              <input
-                type="text"
-                name="validity"
-                value={UpdatedVisa.validity}
-                onChange={handleInputChange}
-                placeholder="Enter validity"
-                className="border p-2 w-full mb-4"
-              />
-<select name="Fee" className="select select-info w-full"  onChange={handleInputChange} required>
-                <option value="" disabled selected>
-                  Select Fee
-                </option>
-                <option       value={UpdatedVisa.validity}>30 days</option>
-                <option       value={UpdatedVisa.validity}>60 days</option>
-                <option       value={UpdatedVisa.validity}>90 days</option>
-                <option       value={UpdatedVisa.validity}>120 days (extendable upon request and justification) </option>
-              </select>
-             
-</div>
-
-
-
-<div className='flex gap-3'>
-
-
-              
-            
-</div>
-              <input
-                type="text"
-                name="applicationMethod"
-                value={UpdatedVisa.applicationMethod}
-                onChange={handleInputChange}
-                placeholder="Enter application method"
-                className="border p-2 w-full mb-4"
-              />
-              <button
-                onClick={handleVisaUpdate}
-                className="bg-green-500 text-white px-10 py-2  rounded-full hover:bg-green-600 transition"
-              >
-                Update Visa
-              </button>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="bg-gray-500 text-white px-10 py-2 rounded-full hover:bg-gray-600 transition mt-4"
-              >
-                Close
-              </button>
-            </div>
-          </div>
+          <label className="w-1/2">
+            <span className="text-sm">Visa Type</span>
+            <select
+              name="visaType"
+              value={UpdatedVisa.visaType}
+              onChange={handleInputChange}
+              className="border p-2 w-full mb-4"
+            >
+              <option value="Tourist visa">Tourist Visa</option>
+              <option value="Student visa">Student Visa</option>
+              <option value="Official visa">Official Visa</option>
+            </select>
+          </label>
         </div>
-      )}
+
+        <div className="flex gap-3">
+          <label className="w-1/2">
+            <span className="text-sm">Processing Time</span>
+            <select
+              name="processingTime"
+              value={UpdatedVisa.processingTime}
+              onChange={handleInputChange}
+              className="border p-2 w-full mb-4"
+            >
+              <option value="">Select Time</option>
+              <option value="2 weeks">2 weeks</option>
+              <option value="3 weeks">3 weeks</option>
+              <option value="20 days">20 days</option>
+              <option value="30 days">30 days</option>
+            </select>
+          </label>
+
+          <label className="w-1/2">
+            <span className="text-sm">Fee</span>
+            <select
+              name="Fee"
+              value={UpdatedVisa.fee}
+              onChange={handleInputChange}
+              className="border p-2 w-full mb-4"
+            >
+              <option value="">Select Fee</option>
+              <option value="$500">$500</option>
+              <option value="$1000">$1000</option>
+              <option value="$2000">$2000</option>
+              <option value="$3000">$3000</option>
+            </select>
+          </label>
+        </div>
+
+        <div className="mb-4">
+          <p>Required Documents</p>
+          {allDocuments.map((doc) => (
+            <label key={doc} className="block">
+              <input
+                type="checkbox"
+                value={doc}
+                checked={UpdatedVisa.requiredDocuments.includes(doc)}
+                onChange={(e) => handleCheckboxChange(e, doc)}
+              />
+              {doc}
+            </label>
+          ))}
+        </div>
+
+        <textarea
+          name="description"
+          value={UpdatedVisa.description}
+          onChange={handleInputChange}
+          placeholder="Enter description"
+          className="border p-2 w-full mb-4"
+        />
+
+        <div className="flex gap-3">
+          <label className="w-1/2">
+            <span className="text-sm">Age Restriction</span>
+            <select
+              name="ageRestriction"
+              value={UpdatedVisa.ageRestriction}
+              onChange={handleInputChange}
+              className="border p-2 w-full mb-4"
+            >
+              <option value="">Select Age Range</option>
+              <option value="18-25">18-25</option>
+              <option value="25-40">25-40</option>
+              <option value="40-50">40-50</option>
+              <option value="50-65">50-65</option>
+            </select>
+          </label>
+
+          <label className="w-1/2">
+            <span className="text-sm">Validity</span>
+            <select
+              name="validity"
+              value={UpdatedVisa.validity}
+              onChange={handleInputChange}
+              className="border p-2 w-full mb-4"
+            >
+              <option value="">Select Validity</option>
+              <option value="30 days">30 days</option>
+              <option value="60 days">60 days</option>
+              <option value="90 days">90 days</option>
+              <option value="120 days">
+                120 days (extendable upon request and justification)
+              </option>
+            </select>
+          </label>
+        </div>
+
+        <input
+          type="text"
+          name="applicationMethod"
+          value={UpdatedVisa.applicationMethod}
+          onChange={handleInputChange}
+          placeholder="Enter application method"
+          className="border p-2 w-full mb-4"
+        />
+
+        <div className="flex gap-4">
+          <button
+            onClick={handleVisaUpdate}
+            className="bg-green-500 text-white px-10 py-2 rounded-full hover:bg-green-600 transition"
+          >
+            Update Visa
+          </button>
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="bg-gray-500 text-white px-10 py-2 rounded-full hover:bg-gray-600 transition"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

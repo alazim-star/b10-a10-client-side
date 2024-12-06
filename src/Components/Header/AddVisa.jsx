@@ -61,7 +61,7 @@ const AddVisa = () => {
             title: "Success",
             text: "Visa Added Successfully",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "Back",
           });
           form.reset();
           setSelectedDocuments([]); // Clear checkboxes

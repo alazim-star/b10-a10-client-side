@@ -1,33 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 const Navbar = () => {
-  const { user, signOutUser, loading,visa } = useContext(AuthContext);
+  const { user, signOutUser, loading } = useContext(AuthContext);
   const [scrolled, setScrolled] = useState(false);
+  const [visaCategories, setVisaCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const navigate = useNavigate();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   const handleSignOut = () => {
     signOutUser()
       .then(() => console.log("Sign out successful"))
       .catch((error) => console.error("Error:", error.message));
   };
+
+  // Fetch visa categories on mount
+  useEffect(() => {
+    fetch('http://localhost:5000/visa')  // Replace this with your API endpoint
+      .then(res => res.json())
+      .then(data => {
+        setVisaCategories(data);
+      })
+      .catch(err => console.error("Error fetching visas:", err));
+  }, []);
 
   const handleScrolled = () => {
     setScrolled(window.scrollY > 0);
@@ -37,6 +33,12 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScrolled);
     return () => window.removeEventListener("scroll", handleScrolled);
   }, []);
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+    // Navigate to the filtered visas page
+    navigate(`/allVisas?category=${event.target.value}`);
+  };
 
   const links = (
     <>
@@ -54,10 +56,20 @@ const Navbar = () => {
         <NavLink
           to="/allVisas"
           className={({ isActive }) =>
-            isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
+            isActive ? 'underline text-black' : 'text-black hover:bg-[#0172b1]'
           }
         >
-          All visas
+          <select
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            className=""
+          >
+            <option value="All" disabled={selectedCategory === "All"}>All visas</option>
+            <option value="Tourist">Tourist</option>
+            <option value="Student">Student</option>
+            <option value="Official">Official</option>
+            <option value="Working">Working</option>
+          </select>
         </NavLink>
       </li>
       <li>
@@ -67,7 +79,7 @@ const Navbar = () => {
             isActive ? 'underline' : 'hover:bg-[#0172b1]'
           }
         >
-         Add Visa
+          Add Visa
         </NavLink>
       </li>
       <li>
@@ -77,27 +89,27 @@ const Navbar = () => {
             isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
           }
         >
-        My added visas
+          My added visas
         </NavLink>
       </li>
       <li>
         <NavLink
-       to='/visaApplication'
+          to="/visaApplication"
           className={({ isActive }) =>
             isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
           }
         >
-     My Visa applications
+          My Visa applications
         </NavLink>
       </li>
       <li>
         <NavLink
-       to='/visaCard'
+          to="/visaCard"
           className={({ isActive }) =>
             isActive ? 'underline text-green-500' : 'hover:bg-[#0172b1]'
           }
         >
-     My Added visa card
+          My Added visa card
         </NavLink>
       </li>
     </>
@@ -173,7 +185,7 @@ const Navbar = () => {
               </p>
               <button
                 onClick={handleSignOut}
-                className="btn bg-blue-500  rounded-md text-white"
+                className="btn bg-blue-500 rounded-md text-white"
               >
                 Sign Out
               </button>
@@ -181,21 +193,12 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="btn bg-blue-500   rounded-md text-white"
+              className="btn bg-blue-500 rounded-md text-white"
             >
               Login
             </Link>
           )}
         </div>
-
-
-
-  
-
-
-
-
-
       </div>
     </header>
   );

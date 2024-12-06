@@ -75,9 +75,9 @@ const Register = () => {
   };
 
   return (
-    <div className="items-center min-h-screen flex justify-center">
+    <div className="items-center min-h-screen flex justify-center ">
       <ToastContainer />
-      <div className="card bg-base-100 w-full max-w-lg p-10">
+      <div className="card bg-base-100  max-w-lg p-10">
         <h2 className="text-2xl text-center font-bold">Register Your Account</h2>
         <form onSubmit={handleRegister} className="card-body">
           {/* Name Section */}
@@ -96,10 +96,11 @@ const Register = () => {
                 <input name="lastName" type="text" placeholder="Last Name" className="input input-bordered" required />
               </div>
             </div>
+         
             <label className="label">
               <span className="label-text">Your Name</span>
             </label>
-            <input name="name" type="text" placeholder="Enter your name" className="input input-bordered" required />
+            <input name="name" type="text" placeholder="Enter your name" className="input input-bordered w-[450px]" required />
           </div>
 
           {/* Photo URL */}
@@ -107,7 +108,7 @@ const Register = () => {
             <label className="label">
               <span className="label-text">Photo URL</span>
             </label>
-            <input name="photo" type="text" placeholder="Photo URL (Optional)" className="input input-bordered" />
+            <input name="photo" type="text" placeholder="Photo URL (Optional)" className="input  w-[450px] input-bordered" />
           </div>
 
           {/* Email */}
@@ -115,7 +116,7 @@ const Register = () => {
             <label className="label">
               <span className="label-text">Email</span>
             </label>
-            <input name="email" type="email" placeholder="Enter your email" className="input input-bordered" required />
+            <input name="email" type="email" placeholder="Enter your email" className=" w-[450px] input input-bordered" required />
           </div>
 
           {/* Password */}
@@ -128,11 +129,12 @@ const Register = () => {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
-                className="input input-bordered w-full"
+                className=" w-[450px] input input-bordered "
                 required
               />
+          
               <span
-                className="absolute top-1/2 transform -translate-y-1/2 right-3 cursor-pointer text-gray-500"
+                className="absolute top-1/2 transform -translate-y-1/2 -right-16 cursor-pointer text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -143,21 +145,17 @@ const Register = () => {
 
           {/* Submit */}
           <div className="form-control mt-6">
-            <button className="btn bg-green-600 text-white rounded-lg">Register</button>
+            <button className="btn bg-green-600 text-white w-[450px] rounded-lg">Register</button>
           </div>
         </form>
-        <p className="text-center font-semibold mt-4">
+        <p className="text-center font-semibold mt-4 ml-10">
           Already Have An Account? <Link to="/login" className="text-red-500 underline">Login</Link>
         </p>
         <button
           onClick={handleGoogleSignIn}
-          className="flex items-center justify-center p-2 shadow-sm bg-white btn w-full mt-5"
+          className="flex items-center justify-center p-2 shadow-sm bg-white btn w-full mt-5 ml-10"
         >
-          <img
-            className="w-6 h-6 mr-2"
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
-            alt="Google Logo"
-          />
+          <img className='w-6 h-6 mr-2 ' src="https://i.ibb.co.com/k9sCr1Z/Logo-google-icon-PNG.png" alt="" />
           <span className="text-gray-600 font-medium">Log in with Google</span>
         </button>
       </div>
