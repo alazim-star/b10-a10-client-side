@@ -1,5 +1,5 @@
 import React from 'react';
-import './test.css'
+import './theme.css'
 
 const Test = () => {
     const switchTheme=(e)=>{
