@@ -64,11 +64,11 @@ const MyVisaApplications = () => {
   return (
     <div className="container mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">My Visa Applications</h2>
+        <h2 className="lg:text-2xl font-semibold">My Visa Applications</h2>
         <div className="flex gap-2">
           <input
             type="text"
-            className="input input-bordered"
+            className="input input-bordered w-full"
             placeholder="Search by country"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -76,7 +76,7 @@ const MyVisaApplications = () => {
           <button className="btn bg-green-600 text-white" onClick={handleSearch}>
             Search
           </button>
-          <button className="btn bg-green-600 text-white" onClick={handleReset}>
+          <button className="btn  bg-green-600 text-white" onClick={handleReset}>
             Previous
           </button>
         </div>
