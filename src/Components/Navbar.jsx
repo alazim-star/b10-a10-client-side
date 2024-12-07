@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-import Test from "./Test/Test";
+import Test from "./DarkAndLight/Test";
 
 const Navbar = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
