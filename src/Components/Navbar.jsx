@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-import Test from "./DarkAndLight/Theme";
+import Theme from "./DarkAndLight/Theme";
+
 
 const Navbar = () => {
   const { user, signOutUser, loading } = useContext(AuthContext);
@@ -195,7 +196,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <Test></Test>
+       <Theme></Theme>
       </div>
     </header>
   );

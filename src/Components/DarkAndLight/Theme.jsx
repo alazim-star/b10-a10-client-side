@@ -1,7 +1,7 @@
 import React from 'react';
 import './theme.css'
 
-const Test = () => {
+const Theme = () => {
     const switchTheme=(e)=>{
         if (e.target.checked) {
             document.querySelector('body').setAttribute('data-theme','dark')
@@ -38,4 +38,4 @@ const Test = () => {
     );
 };
 
-export default Test;
+export default Theme;
