@@ -14,7 +14,7 @@ const LatestVisaSection = () => {
     return (
         <div>
              <div>
-      <h2 className="text-center text-5xl font-bold mt-56 mb-5">
+      <h2 className="text-center text-5xl font-bold mt-5 mb-5">
         Our Latest Visa
       </h2>
       <h3 className="text-center text-xl  font-bold text-red-600  mb-20">
