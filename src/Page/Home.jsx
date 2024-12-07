@@ -10,13 +10,20 @@ import TopTravelDestinations from '../Components/TopTravelDestinations';
 
 
 
+
+
+
+
+
 const Home = () => {
     return (
         <div>
-          
+  
     <Banner></Banner>
+    
 
     <Outlet></Outlet>
+
     <TopTravelDestinations></TopTravelDestinations>
     <ReviewsSection></ReviewsSection>
     <></>

@@ -1,21 +1,25 @@
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import VisaCard from "../VisaCard";
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
 
 const Allvisa = () => {
-  const loadedVisas = useLoaderData();
-  const [visas, setVisas] = useState(loadedVisas); 
- 
+  const loadedVisas = useLoaderData(); 
+  const [visas, setVisas] = useState([]);
+  
 
+  useEffect(() => {
+    setVisas(loadedVisas);
+  }, [loadedVisas]);
+
+  
+ 
   return (
     <div>
-
-       
       <div className="container mx-auto p-4">
         <h2 className="text-center text-3xl font-bold mt-10 mb-6">All Visas</h2>
 
+       
+         
 
         {/* Visa Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">

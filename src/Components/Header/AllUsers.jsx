@@ -4,13 +4,13 @@ import Swal from "sweetalert2";
 
 
 const AllUsers = () => {
-    const loadedClients = useLoaderData(); // Data loaded from backend
+    const loadedClients = useLoaderData(); 
     const [clients,setClients] = useState(loadedClients);
 
-    // Format Date for better readability
+    
     const formatDate = (date) => {
-        if (!date) return "N/A"; // Handle missing date
-        return new Date(date).toLocaleString(); // Format date
+        if (!date) return "N/A"; 
+        return new Date(date).toLocaleString(); 
     };
 
     // Delete User Handler
@@ -76,7 +76,7 @@ const AllUsers = () => {
                                     <td>{formatDate(client.createdAt)}</td>
                                     <td>{formatDate(client.lastSignInTime)}</td>
                                     <td>
-                                        <button className="btn btn-primary btn-sm mr-2">Edit</button>
+                                       
                                         <button
                                             onClick={() => handleUserDelete(client._id)}
                                             className="btn btn-danger btn-sm"
