@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from './AuthProvider';
 
 const ViewDetails = () => {
-  const visa = useLoaderData(); // Fetch visa details
-  const { user } = useContext(AuthContext); // Get logged-in user information
+  const visa = useLoaderData(); 
+  const { user } = useContext(AuthContext); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -18,19 +18,6 @@ const ViewDetails = () => {
 
   // Current date
   const currentDate = new Date().toLocaleDateString();
-
-  
-  
-
-
-
-
-  
-  
-  
-
-
-
 
 
   const handleInputChange = (e) => {
@@ -57,7 +44,7 @@ const ViewDetails = () => {
       applicationMethod: visa.applicationMethod,
     };
 
-    setIsSubmitting(true); // Disable button during submission
+    setIsSubmitting(true); 
 
     fetch('http://localhost:5000/applications', {
       method: 'POST',
@@ -77,9 +64,9 @@ const ViewDetails = () => {
             confirmButtonText: "Cool",
           });
 
-          setIsModalOpen(false); // Close modal
-          setFormData({ firstName: '', lastName: '' }); // Reset form
-          navigate('/visaApplication'); // Redirect to visa applications page
+          setIsModalOpen(false); 
+          setFormData({ firstName: '', lastName: '' }); 
+          navigate('/visaApplication'); 
         } else {
           alert('Failed to submit the application. Please try again.');
         }

@@ -72,7 +72,7 @@ const Card = ({ visa, visas, setVisas }) => {
           );
           setVisas(updatedVisas);
 
-          setIsModalOpen(false); // Close the modal after update
+          setIsModalOpen(false); 
         }
       })
       .catch((error) => {

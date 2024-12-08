@@ -17,18 +17,10 @@ const Home = () => {
     <Banner></Banner>
     <CountryPic></CountryPic>
 
-
-
-
 <Outlet></Outlet>
-
-
-
-    
+   
 
 <VisaNavigator></VisaNavigator>
-
-
 
     <TopTravelDestinations></TopTravelDestinations>
     <ReviewsSection></ReviewsSection>

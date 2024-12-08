@@ -41,7 +41,7 @@ const AddVisa = () => {
       validity,
       Fee,
       applicationMethod,
-      requiredDocuments: selectedDocuments, // Include selected documents
+      requiredDocuments: selectedDocuments, 
     };
 
     console.log("Submitted Visa Data:", newVisa);
@@ -64,7 +64,7 @@ const AddVisa = () => {
             confirmButtonText: "Back",
           });
           form.reset();
-          setSelectedDocuments([]); // Clear checkboxes
+          setSelectedDocuments([]); 
         }
       })
       .catch((err) => {

@@ -122,26 +122,18 @@ const router = createBrowserRouter([
                         children: [
                             {
                                 index: true,
-                                element: <AllCategoryCardss filterByVisaType={false}></AllCategoryCardss>, // Show all visas
+                                element: <AllCategoryCardss></AllCategoryCardss>, 
                                 loader: () => fetch('http://localhost:5000/visa'),
                             },
                             {
                                 path: ":visaType",
-                                element: <AllCategoryCardss filterByVisaType={true}></AllCategoryCardss>, // Show filtered visas
+                                element: <AllCategoryCardss></AllCategoryCardss>, 
                                 loader: () => fetch('http://localhost:5000/visa'),
                             },
                         ],
                     },
                     
-                    
-                     
-       
-                    
-                        
-                       
-                    
-                     
-                     
+            
  
     ],
     },
