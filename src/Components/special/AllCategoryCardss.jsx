@@ -11,7 +11,7 @@ const AllCategoryCardss = () => {
 
     
 const [visas,setVisas]=useState([])
-    console.log(data);
+    // console.log(data);
   
 useEffect(()=>{
     if(visaType){

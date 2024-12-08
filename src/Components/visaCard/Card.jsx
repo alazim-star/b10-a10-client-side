@@ -49,7 +49,7 @@ const Card = ({ visa, visas, setVisas }) => {
   };
 
   const handleVisaUpdate = () => {
-    fetch(`http://localhost:5000/visa/${_id}`, {
+    fetch(`https://b10-a10-server-side-tau.vercel.app/visa/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const Card = ({ visa, visas, setVisas }) => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/visa/${id}`, {
+        fetch(`https://b10-a10-server-side-tau.vercel.app/visa/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

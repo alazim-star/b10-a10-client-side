@@ -57,4 +57,4 @@ Visa Navigator is a user-friendly platform that simplifies the process of naviga
 
  # document link:https://docs.google.com/document/d/1V7YZXJbhnlJpqLZonXKU_Xxl5slLF8H6t4tAYiYbh0s/edit?tab=t.0
 
- # project link-client-side:
+ # project link-client-side:https://b10-a10-client-side.web.app/

@@ -14,7 +14,7 @@ const AddVisa = () => {
 
   // Log state updates for debugging
   useEffect(() => {
-    console.log("Updated Selected Documents:", selectedDocuments);
+    // console.log("Updated Selected Documents:", selectedDocuments);
   }, [selectedDocuments]);
 
   const handleAddVisa = (event) => {
@@ -44,10 +44,10 @@ const AddVisa = () => {
       requiredDocuments: selectedDocuments, 
     };
 
-    console.log("Submitted Visa Data:", newVisa);
+    // console.log("Submitted Visa Data:", newVisa);
 
     // Send data to the server
-    fetch("http://localhost:5000/visa", {
+    fetch("https://b10-a10-server-side-tau.vercel.app/visa", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

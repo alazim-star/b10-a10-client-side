@@ -46,7 +46,7 @@ const ViewDetails = () => {
 
     setIsSubmitting(true); 
 
-    fetch('http://localhost:5000/applications', {
+    fetch('https://b10-a10-server-side-tau.vercel.app/applications', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -31,13 +31,13 @@ const Register = () => {
     try {
       // Create User
       const result = await createUser(email, password);
-      console.log("User created at Firebase:", result.user);
+      // console.log("User created at Firebase:", result.user);
       
       const createdAt = result.user.metadata.creationTime;
       const newClient = { name, email, createdAt };
 
       // Save user to database
-      const response = await fetch('http://localhost:5000/clients', {
+      const response = await fetch('https://b10-a10-server-side-tau.vercel.app/clients', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Register = () => {
       const data = await response.json();
 
       if (data.insertedId) {
-        console.log("Client added to database:", data);
+        // console.log("Client added to database:", data);
         toast.success("Registration successful! Welcome!");
       }
 

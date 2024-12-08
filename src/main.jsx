@@ -41,7 +41,7 @@ const router = createBrowserRouter([
           {
             path: "/",
             element: <LatesVisaSection></LatesVisaSection>,
-            loader:()=>fetch('http://localhost:5000/visa'),
+            loader:()=>fetch('https://b10-a10-server-side-tau.vercel.app/visa'),
         
             },
           
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           path: "/allVisas",
           element: <Allvisa></Allvisa>,
 
-          loader:()=>fetch('http://localhost:5000/visa'),
+          loader:()=>fetch('https://b10-a10-server-side-tau.vercel.app/visa'),
      
        
           },
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
               {
                 path: "/clients",
                 element: <AllUsers></AllUsers>,
-                loader:()=>fetch('http://localhost:5000/clients'),
+                loader:()=>fetch('https://b10-a10-server-side-tau.vercel.app/clients'),
             
             
                 },
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
 
                   ),
-                  loader:()=>fetch('http://localhost:5000/visa'),
+                  loader:()=>fetch('https://b10-a10-server-side-tau.vercel.app/visa'),
                   },
                 {
                   path: "/visaApplication",
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
                     path: "/viewDetails/:id", 
                     element: <ViewDetails />,
                     loader: async ({ params }) => {
-                      const res = await fetch(`http://localhost:5000/visa`);
+                      const res = await fetch(`https://b10-a10-server-side-tau.vercel.app/visa`);
                       const data = await res.json();
                       const singleData = data.find(d => d._id === params.id);
                       return singleData; 
@@ -123,12 +123,12 @@ const router = createBrowserRouter([
                             {
                                 index: true,
                                 element: <AllCategoryCardss></AllCategoryCardss>, 
-                                loader: () => fetch('http://localhost:5000/visa'),
+                                loader: () => fetch('https://b10-a10-server-side-tau.vercel.app/visa'),
                             },
                             {
                                 path: ":visaType",
                                 element: <AllCategoryCardss></AllCategoryCardss>, 
-                                loader: () => fetch('http://localhost:5000/visa'),
+                                loader: () => fetch('https://b10-a10-server-side-tau.vercel.app/visa'),
                             },
                         ],
                     },

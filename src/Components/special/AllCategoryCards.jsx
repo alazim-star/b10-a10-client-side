@@ -27,11 +27,13 @@ const AllCategoryCards = ({ categories }) => {
                         Select Visa Type
                     </option>
                    
-                    {categories.map((category) => (
+               
+                 {categories.map((category) => (
                         <option key={category.visaType} value={category.visaType}>
                             {category.visaType}
                         </option>
                     ))}
+                
                 </select>
             </div>
         </div>

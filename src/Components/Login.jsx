@@ -25,7 +25,7 @@ const Login = () => {
 
         signInUser(email, password)
             .then((result) => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast.success("Login successful!", {
                     position: "top-right",
                     autoClose: 3000,
@@ -51,7 +51,7 @@ const Login = () => {
 
 
       const loginInfo ={email,lastSignInTime}
-      fetch(`http://localhost:5000/clients`,{
+      fetch(`https://b10-a10-server-side-tau.vercel.app/clients`,{
         method:'PATCH',
         headers:{
             'content-type':'application/json'
@@ -60,7 +60,7 @@ const Login = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log('sign in info update in db',data);
+    //   console.log('sign in info update in db',data);
     })
     
       .catch(error=>{

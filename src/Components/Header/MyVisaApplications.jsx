@@ -10,7 +10,7 @@ const MyVisaApplications = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/applications/${user?.email}`)
+      fetch(`https://b10-a10-server-side-tau.vercel.app/applications/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           setApplications(data);
@@ -31,7 +31,7 @@ const MyVisaApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/applications/${id}`, {
+        fetch(`https://b10-a10-server-side-tau.vercel.app/applications/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
