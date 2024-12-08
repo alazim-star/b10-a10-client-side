@@ -1,6 +1,8 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import VisaCard from "../VisaCard";
 import { useState, useEffect } from "react";
+
+
 
 const Allvisa = () => {
   const loadedVisas = useLoaderData(); 
@@ -15,6 +17,7 @@ const Allvisa = () => {
  
   return (
     <div>
+
       <div className="container mx-auto p-4">
         <h2 className="text-center text-3xl font-bold mt-10 mb-6">All Visas</h2>
 

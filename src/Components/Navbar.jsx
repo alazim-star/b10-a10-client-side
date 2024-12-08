@@ -47,7 +47,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </a>
-      <a className="mr-3">
+      {/* <a className="mr-3">
         <NavLink
           to="/allVisas"
           className={({ isActive }) =>
@@ -58,7 +58,30 @@ const Navbar = () => {
         >
           All Visa
         </NavLink>
+      </a> */}
+      
+
+
+      <a className="mr-3">
+        <NavLink
+          to="/allCategory"
+          className={({ isActive }) =>
+            isActive
+              ? "lg:bg-yellow-500 lg:p-3 p-5 underline text-black"
+              : "lg:hover:bg-blue-500 p-3"
+          }
+        >
+          All Visa
+        </NavLink>
       </a>
+      
+
+
+
+
+
+
+
       <a className="mr-3">
         <NavLink
           to="/addVisa"

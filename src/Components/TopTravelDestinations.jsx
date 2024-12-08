@@ -36,7 +36,7 @@ const TopTravelDestinations = () => {
 
     return (
         <div className="container mx-auto my-14 px-4">
-            <h1 className="my-5 text-center text-4xl font-bold">Top Travel Destinations</h1>
+            <h1 className="my-5 text-center text-4xl font-bold">Top <span className='text-green-600'>Travel</span> Destinations</h1>
            
      <div className='text-red-600 text-center mb-10 font-bold'>
      <Fade>

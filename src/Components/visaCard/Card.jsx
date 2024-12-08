@@ -121,7 +121,8 @@ const Card = ({ visa, visas, setVisas }) => {
 
   return (
     <div className="  p-5  rounded-3xl overflow-hidden shadow-2xl">
-      <img className="object-cover rounded-3xl w-full h-48" src={visa.countryImage} alt={visa.countryName} />
+      <div className='flex'>
+    <div>  <img className="object-cover rounded-3xl w-full h-48" src={visa.countryImage} alt={visa.countryName} /></div>
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2">{visa.countryName}</h2>
         <p><strong>Visa Type:</strong> {visa.visaType}</p>
@@ -129,6 +130,7 @@ const Card = ({ visa, visas, setVisas }) => {
         <p><strong>Fee:</strong>{visa.Fee}</p>
         <p><strong>Validity:</strong> {visa.validity}</p>
         <p><strong>Application Method:</strong> {visa.applicationMethod}</p>
+      </div>
       </div>
       <div className="px-6 py-2 flex space-x-4">
         <button

@@ -19,6 +19,10 @@ import PrivateRoute from './Components/PrivateRoute.jsx';
 import MyVisaApplications from './Components/Header/MyVisaApplications.jsx';
 import AllUsers from './Components/Header/AllUsers.jsx';
 
+import AllCategoryCard from './Components/special/AllCategoryCard.jsx';
+import AllCategoryCardss from './Components/special/AllCategoryCardss.jsx';
+
+
 
 
 
@@ -32,6 +36,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
        
+       
         children:[
           {
             path: "/",
@@ -39,15 +44,17 @@ const router = createBrowserRouter([
             loader:()=>fetch('http://localhost:5000/visa'),
         
             },
+          
         ]
     
         },
         {
           path: "/allVisas",
           element: <Allvisa></Allvisa>,
+
           loader:()=>fetch('http://localhost:5000/visa'),
-          
-      
+     
+       
           },
           
             {
@@ -86,7 +93,6 @@ const router = createBrowserRouter([
                   </PrivateRoute>
 
                   ),
-                  // loader:()=>fetch(`http://localhost:5000/applications/:email${email}`),
               
                   },
                   {
@@ -109,6 +115,31 @@ const router = createBrowserRouter([
                       element: <Login></Login>,
                   
                       },
+                      {
+                        path: "/allCategory",
+                        element: <AllCategoryCard></AllCategoryCard>,
+                        loader: () => fetch('/categories.json'),
+                        children: [
+                            {
+                                index: true,
+                                element: <AllCategoryCardss filterByVisaType={false}></AllCategoryCardss>, // Show all visas
+                                loader: () => fetch('http://localhost:5000/visa'),
+                            },
+                            {
+                                path: ":visaType",
+                                element: <AllCategoryCardss filterByVisaType={true}></AllCategoryCardss>, // Show filtered visas
+                                loader: () => fetch('http://localhost:5000/visa'),
+                            },
+                        ],
+                    },
+                    
+                    
+                     
+       
+                    
+                        
+                       
+                    
                      
                      
  

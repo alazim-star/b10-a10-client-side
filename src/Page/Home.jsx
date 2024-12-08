@@ -1,5 +1,5 @@
 
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Banner from '../Components/Header/Banner';
 import ReviewsSection from '../Components/ReviewsSection';
 import TopTravelDestinations from '../Components/TopTravelDestinations';
@@ -8,26 +8,27 @@ import CountryPic from '../Components/CountryPic';
 
 
 
-
-
-
-
-
-
-
-
-
 const Home = () => {
+   
+ 
     return (
         <div>
   
     <Banner></Banner>
     <CountryPic></CountryPic>
+
+
+
+
+<Outlet></Outlet>
+
+
+
     
 
 <VisaNavigator></VisaNavigator>
 
-    <Outlet></Outlet>
+
 
     <TopTravelDestinations></TopTravelDestinations>
     <ReviewsSection></ReviewsSection>

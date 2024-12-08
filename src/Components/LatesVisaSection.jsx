@@ -15,7 +15,7 @@ const LatestVisaSection = () => {
         <div>
              <div>
       <h2 className="text-center text-5xl font-bold mt-5 mb-5">
-        Our Latest Visa
+        Our <span className='text-green-600'>Latest</span> Visa
       </h2>
       <h3 className="text-center text-xl  font-bold text-red-600  mb-20">
         <Typewriter
@@ -25,7 +25,7 @@ const LatestVisaSection = () => {
             "Affordable Fees!",
             "Global Visa Solutions!",
           ]}
-          loop={5} // Repeat the animation 5 times or use `Infinity` for continuous
+          loop={5} 
           cursor
           cursorStyle="|"
           typeSpeed={70}
