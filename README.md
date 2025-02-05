@@ -45,7 +45,8 @@ An **interactive Visa Processing Web Application** Visa Navigator is a user-frie
 <div align="center">
   <table>
     <tr>
-      <td><img src="https://i.ibb.co.com/4wR0MH9m/dd.jpg" width="300" alt="Lingo Bingo Screenshot 2"></td>
+      <td><img src="https://i.ibb.co.com/Hf0z26yj/aa.jpg" width="300" alt="Lingo Bingo Screenshot 2"></td>
+      <td><img src="https://i.ibb.co.com/9HqkYRDn/aaa.jpg" width="300" alt="Lingo Bingo Screenshot 2"></td>
     </tr>
   </table>
 </div>
@@ -53,6 +54,16 @@ An **interactive Visa Processing Web Application** Visa Navigator is a user-frie
 ## 🚀 Live Demo  
 
 🔗 **Live Website**: [VISA NAVIGATOR](https://b10-a10-client-side.web.app/)  
+
+
+📜 ### Documentation
+
+📄 Project Document: [View Here](https://docs.google.com/document/d/1V7YZXJbhnlJpqLZonXKU_Xxl5slLF8H6t4tAYiYbh0s/edit?tab=t.0)
+
+ 
+
+🏆 Contributing
+Contributions are welcome! Feel free to submit a pull request.
 
 ## 📂 Project Setup
 
@@ -67,11 +78,3 @@ npm install
 npm run dev
 
 
-📜 ### Documentation
-
-📄 Project Document: [View Here](https://docs.google.com/document/d/1V7YZXJbhnlJpqLZonXKU_Xxl5slLF8H6t4tAYiYbh0s/edit?tab=t.0)
-
- 
-
-🏆 Contributing
-Contributions are welcome! Feel free to submit a pull request.
